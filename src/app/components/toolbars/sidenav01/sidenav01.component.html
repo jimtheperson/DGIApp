@@ -1,0 +1,77 @@
+<mat-sidenav-container id="menuContainer" [hasBackdrop]="false" fullscreen>
+        <mat-sidenav id="menuNav" #sideNav autoFocus="false" disableClose="true" mode="over" position="start" [opened]=true>
+            <div id="navContainer">
+                <div id="navContainerTop">
+                    <div class="navButton">
+                        <button mat-icon-button color="primary" aria-label="Expand the Menu"
+                        (click)="sideNavExpand()">
+                            <mat-icon class="material-symbols-outlined">menu</mat-icon>
+                        </button>
+                        <div class="navButtonText" *ngIf="isExpandedSideNav">Menu</div>
+                    </div>
+                    <mat-divider></mat-divider>
+                </div>
+                <div id="navContainerMiddle">
+                    <div class="navButton">
+                        <button mat-icon-button color="primary" aria-label="A/V Routing" 
+                        routerLink="/page-routing">
+                            <mat-icon class="material-symbols-outlined">route</mat-icon>
+                        </button>
+                        <div class="navButtonText" *ngIf="isExpandedSideNav">A/V Routing</div>
+                    </div>
+                    <!-- <div>
+                        <button mat-icon-button class="navButton" color="primary" aria-label="Audio Controls">
+                            <mat-icon class="material-symbols-outlined">speaker_group</mat-icon>
+                        </button>
+                    </div> -->
+                    <div class="navButton">
+                        <button mat-icon-button color="primary" aria-label="Camera Controls">
+                            <mat-icon class="material-symbols-outlined">videocam</mat-icon>
+                        </button>
+                        <div class="navButtonText" *ngIf="isExpandedSideNav">Camera Controls</div>
+                    </div>                    
+                    <div class="navButton">
+                        <button mat-icon-button color="primary" aria-label="Phone">
+                            <mat-icon class="material-symbols-outlined">phone</mat-icon>
+                        </button>
+                        <div class="navButtonText" *ngIf="isExpandedSideNav">Phone</div>
+                    </div>
+                    <div class="navButton">
+                        <button mat-icon-button color="primary" aria-label="Input Controls">
+                            <mat-icon class="material-symbols-outlined">remote_gen</mat-icon>
+                        </button>
+                        <div class="navButtonText" *ngIf="isExpandedSideNav">Input Controls</div>
+                    </div>
+                    <div class="navButton">
+                        <button mat-icon-button color="primary" aria-label="Shade Controls">
+                            <mat-icon class="material-symbols-outlined">roller_shades</mat-icon>
+                        </button>
+                        <div class="navButtonText" *ngIf="isExpandedSideNav">Shades</div>
+                    </div>
+                    <div class="navButton">
+                        <button mat-icon-button color="primary" aria-label="Lighting Controls">
+                            <mat-icon class="material-symbols-outlined">lightbulb</mat-icon>
+                        </button>
+                        <div class="navButtonText" *ngIf="isExpandedSideNav">Lights</div>
+                    </div>            
+                </div>
+                <div id="navContainerBottom">
+                    <mat-divider></mat-divider>
+                    <div class="navButton">
+                        <button mat-icon-button color="primary" aria-label="System Settings">
+                            <mat-icon class="material-symbols-outlined">settings</mat-icon>
+                        </button>
+                        <div class="navButtonText" *ngIf="isExpandedSideNav">Settings</div>
+                    </div>
+                </div>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content id="contentContainer">
+            <!-- <div id="contentContainerTop"></div> -->
+            <app-header01></app-header01>
+            <div id="menuContent">
+                <router-outlet></router-outlet>
+            </div>
+            <app-footer01></app-footer01>
+        </mat-sidenav-content>
+</mat-sidenav-container>

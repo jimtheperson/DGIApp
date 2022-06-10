@@ -1,0 +1,50 @@
+#menuContainer{
+    height: 100%;
+    width: 100%;
+}
+#menuNav{
+    height: 95%;
+    // width: 100%;
+    // min-width: fit-content;
+    padding: 10px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+#navContainer{
+    height: 100%;
+    // min-width: fit-content;
+    display: flex;
+    flex-flow: column wrap;
+}
+#navContainerTop{
+    width: 100%;
+    margin: auto;
+}
+#navContainerMiddle{
+    margin: auto;
+    flex-grow: 1;
+}
+#navContainerBottom{
+    margin-top: auto;
+    margin-bottom: 0;
+}
+.navButton{
+    margin: 5px;
+}
+.navButtonText{
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline;    
+}
+#contentContainer{
+    height: 100%;
+    width: 100%;
+}
+#menuContent{
+    padding-left: 10%;
+    padding-right: 1%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+}

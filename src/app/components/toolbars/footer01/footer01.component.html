@@ -1,0 +1,45 @@
+<div id="footer01Container">
+    <mat-card id="footer01CardContainer">
+        <mat-card-footer id="footer01ButtonContainer">
+            <div>
+                <button mat-icon-button class="footer01Button" color="primary" aria-label="Go Back"
+                (click)="backClicked()">
+                    <mat-icon class="material-symbols-outlined">undo</mat-icon>
+                </button>
+            </div>
+            <div>
+                <button mat-icon-button class="footer01Button" color="primary" aria-label="Home Page"
+                routerLink="/page-main">
+                    <mat-icon class="material-symbols-outlined">home</mat-icon>
+                </button>
+            </div>
+            <mat-divider class="footer01Button" [vertical]="true"></mat-divider>
+            <div>
+                <button mat-icon-button class="footer01Button" color="primary" aria-label="Main Volume Mute">
+                    <mat-icon class="material-symbols-outlined">volume_off</mat-icon>
+                </button>
+            </div>
+            <div>
+                <button mat-icon-button class="footer01Button" color="primary" aria-label="Main Volume Down">
+                    <mat-icon class="material-symbols-outlined">volume_down</mat-icon>
+                </button>
+            </div>
+            <div>
+                <button mat-icon-button color="primary" aria-label="Main Volume Up">
+                    <mat-icon class="material-symbols-outlined">volume_up</mat-icon>
+                </button>
+            </div>
+            <div>
+                <button mat-icon-button color="primary" aria-label="Volume Mixer">
+                    <mat-icon class="material-symbols-outlined">tune</mat-icon>
+                </button>
+            </div>
+            <mat-divider class="footer01Button" [vertical]="true"></mat-divider>
+            <div>
+                <button mat-icon-button class="footer01Button" color="primary" aria-label="System Power">
+                    <mat-icon class="material-symbols-outlined" color="accent">power_settings_new</mat-icon>
+                </button>
+            </div>
+        </mat-card-footer>
+    </mat-card>
+</div>
