@@ -8,8 +8,8 @@
     "build:prod": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "archive": "ch5-cli archive -p {project name} -d dist/{angular project name} -o tsw",
-    "sendPanel": "ch5-cli deploy -H {TP IP Address or Hostname} -p  -t touchscreen tsw/{project name}.ch5z",
+    "archive": "ch5-cli archive -p DGIApp -d dist/DGIApp -o tsw",
+    "sendPanel": "ch5-cli deploy -H {192.168.1.5} -p  -t touchscreen tsw/{DGIApp}.ch5z",
     "upload": "npm run build:prod && npm run archive && npm run sendPanel"
   },
   "private": true,

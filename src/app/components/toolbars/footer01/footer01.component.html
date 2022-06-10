@@ -7,13 +7,12 @@
                     <mat-icon class="material-symbols-outlined">undo</mat-icon>
                 </button>
             </div>
-            <div>
-                <button mat-icon-button class="footer01Button" color="primary" aria-label="Home Page"
-                routerLink="/page-main">
-                    <mat-icon class="material-symbols-outlined">home</mat-icon>
+            <div class="footer01Button" routerLink="/page-main" routerLinkActive="footer01ButtonSelected">
+                <button mat-icon-button aria-label="Home Page">
+                    <mat-icon class="material-symbols-outlined"  routerLinkActive="footer01IconSelected">home</mat-icon>
                 </button>
             </div>
-            <mat-divider class="footer01Button" [vertical]="true"></mat-divider>
+            <mat-divider [vertical]="true"></mat-divider>
             <div>
                 <button mat-icon-button class="footer01Button" color="primary" aria-label="Main Volume Mute">
                     <mat-icon class="material-symbols-outlined">volume_off</mat-icon>
@@ -34,10 +33,10 @@
                     <mat-icon class="material-symbols-outlined">tune</mat-icon>
                 </button>
             </div>
-            <mat-divider class="footer01Button" [vertical]="true"></mat-divider>
+            <mat-divider [vertical]="true"></mat-divider>
             <div>
                 <button mat-icon-button class="footer01Button" color="primary" aria-label="System Power">
-                    <mat-icon class="material-symbols-outlined" color="accent">power_settings_new</mat-icon>
+                    <mat-icon class="material-symbols-outlined" color="warn">power_settings_new</mat-icon>
                 </button>
             </div>
         </mat-card-footer>

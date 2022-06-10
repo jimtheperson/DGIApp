@@ -2,28 +2,21 @@
         <mat-sidenav id="menuNav" #sideNav autoFocus="false" disableClose="true" mode="over" position="start" [opened]=true>
             <div id="navContainer">
                 <div id="navContainerTop">
-                    <div class="navButton">
-                        <button mat-icon-button color="primary" aria-label="Expand the Menu"
-                        (click)="sideNavExpand()">
+                    <div class="navButton" (click)="sideNavExpand()">
+                        <button mat-icon-button color="primary" aria-label="Expand the Menu">
                             <mat-icon class="material-symbols-outlined">menu</mat-icon>
                         </button>
                         <div class="navButtonText" *ngIf="isExpandedSideNav">Menu</div>
                     </div>
-                    <mat-divider></mat-divider>
                 </div>
+                <mat-divider></mat-divider>
                 <div id="navContainerMiddle">
-                    <div class="navButton">
-                        <button mat-icon-button color="primary" aria-label="A/V Routing" 
-                        routerLink="/page-routing">
-                            <mat-icon class="material-symbols-outlined">route</mat-icon>
+                    <div class="navButton" routerLink="/page-routing" routerLinkActive="navButtonSelected">
+                        <button mat-icon-button aria-label="A/V Routing">
+                            <mat-icon class="material-symbols-outlined" routerLinkActive="navIconSelected">route</mat-icon>
                         </button>
-                        <div class="navButtonText" *ngIf="isExpandedSideNav">A/V Routing</div>
+                        <div class="navButtonText" *ngIf="isExpandedSideNav" routerLinkActive="navIconSelected">A/V Routing</div>
                     </div>
-                    <!-- <div>
-                        <button mat-icon-button class="navButton" color="primary" aria-label="Audio Controls">
-                            <mat-icon class="material-symbols-outlined">speaker_group</mat-icon>
-                        </button>
-                    </div> -->
                     <div class="navButton">
                         <button mat-icon-button color="primary" aria-label="Camera Controls">
                             <mat-icon class="material-symbols-outlined">videocam</mat-icon>
@@ -55,8 +48,8 @@
                         <div class="navButtonText" *ngIf="isExpandedSideNav">Lights</div>
                     </div>            
                 </div>
+                <mat-divider></mat-divider>
                 <div id="navContainerBottom">
-                    <mat-divider></mat-divider>
                     <div class="navButton">
                         <button mat-icon-button color="primary" aria-label="System Settings">
                             <mat-icon class="material-symbols-outlined">settings</mat-icon>
