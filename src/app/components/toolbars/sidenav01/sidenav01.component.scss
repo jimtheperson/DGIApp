@@ -10,6 +10,7 @@
     border-bottom-right-radius: 15px;
     margin-top: auto;
     margin-bottom: auto;
+    box-shadow: 0 0 0 0 !important;
 }
 #navContainer{
     height: 100%;
@@ -46,7 +47,7 @@
     margin-bottom: 5px;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
-    box-shadow: 3px 0px 5px inset;
+    box-shadow: 1px 0px 2px inset;
     color: var(--color--primary);
 }
 .navIconSelected{

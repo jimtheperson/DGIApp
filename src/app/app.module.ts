@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from "@angular/forms";
 
 //ANGULAR MATERIAL
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -16,6 +17,8 @@ import { MatIconModule } from "@angular/material/icon";
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatDividerModule } from "@angular/material/divider";
+import { MatTabsModule } from "@angular/material/tabs";
+import {MatInputModule} from '@angular/material/input';
 
 //DGI COMPONENTS
 import { Header01Component } from './components/toolbars/header01/header01.component';
@@ -23,6 +26,7 @@ import { Footer01Component } from './components/toolbars/footer01/footer01.compo
 import { Sidenav01Component } from './components/toolbars/sidenav01/sidenav01.component';
 import { PageMainComponent } from './components/pages/page-main/page-main.component';
 import { PageRoutingComponent } from './components/pages/page-routing/page-routing.component';
+import { PageRoutingPresetsComponent } from './components/pages/page-routing-presets/page-routing-presets.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +35,14 @@ import { PageRoutingComponent } from './components/pages/page-routing/page-routi
     Footer01Component,
     Sidenav01Component,
     PageMainComponent,
-    PageRoutingComponent
+    PageRoutingComponent,
+    PageRoutingPresetsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     //ANGULAR MATERIAL
     MatSidenavModule,
     MatToolbarModule,
@@ -47,7 +53,9 @@ import { PageRoutingComponent } from './components/pages/page-routing/page-routi
     MatIconModule,
     MatSlideToggleModule,
     MatProgressBarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTabsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

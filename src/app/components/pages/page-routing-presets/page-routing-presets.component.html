@@ -1,0 +1,48 @@
+<div id="presetSearchandAddContainer">
+    <mat-form-field id="presetSearch" appearance="outline" color="primary">
+        <mat-label>Search</mat-label>
+        <input matInput type="text" [(ngModel)]="searchValue">
+        <button *ngIf="searchValue" matSuffix mat-icon-button aria-label="Clear" (click)="searchValue=''">
+          <mat-icon class="material-symbols-outlined">close</mat-icon>
+        </button>
+    </mat-form-field>
+    <button mat-fab color="primary">          
+        <mat-icon class="material-symbols-outlined">add</mat-icon>
+    </button>
+</div>
+<div id="presetListContainer">
+    <div *ngFor="let preset of presets" class="presetContainer">
+        <mat-card>
+            <mat-card-header>
+                <mat-icon *ngIf="preset.isScheduled" class="material-symbols-outlined">timer</mat-icon>
+                <mat-card-title>{{ preset.label }}</mat-card-title>
+                <mat-card-subtitle>preview:</mat-card-subtitle>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content class="presetContent">
+                <div *ngFor="let entity of preset.entity">
+                    <div>
+                        <div><mat-icon class="material-symbols-outlined">{{ entity.icon }}</mat-icon></div>
+                        <div>{{ entity.label }}</div>
+                    </div>
+                    <div>{{ entity.value }}</div>
+                </div>
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-actions class="presetActions">
+                <button mat-flat-button class="presetActionButton" color="primary">
+                    <mat-icon class="material-symbols-outlined">refresh</mat-icon>
+                    Recall</button>
+                <button mat-flat-button class="presetActionButton" color="accent">
+                    <mat-icon class="material-symbols-outlined">edit</mat-icon>
+                    Edit</button>
+                <button mat-flat-button class="presetActionButton" color="warn">
+                    <mat-icon class="material-symbols-outlined">delete</mat-icon>
+                    Delete</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div *ngIf="presets.length === 0">
+        No Presets. You can make one though...
+    </div>
+</div>

@@ -1,1 +1,14 @@
-<p>page-routing works!</p>
+<nav mat-tab-nav-bar mat-align-tabs="center">
+    <a
+      mat-tab-link
+      *ngFor="let link of navLinks"
+      routerLink="{{ link.location }}"
+      routerLinkActive
+      #rla="routerLinkActive"
+      [active]="rla.isActive"
+    >
+      <mat-icon class="material-symbols-outlined">{{ link.icon }}</mat-icon>
+      <span>{{ link.label | uppercase }}</span>
+    </a>
+  </nav>
+<router-outlet></router-outlet>
