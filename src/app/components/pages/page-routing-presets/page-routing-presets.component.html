@@ -1,14 +1,27 @@
 <div id="presetSearchandAddContainer">
-    <mat-form-field id="presetSearch" appearance="outline" color="primary">
-        <mat-label>Search</mat-label>
-        <input matInput type="text" [(ngModel)]="searchValue">
-        <button *ngIf="searchValue" matSuffix mat-icon-button aria-label="Clear" (click)="searchValue=''">
-          <mat-icon class="material-symbols-outlined">close</mat-icon>
+    <div id="presetSearchandAddLeft" *ngIf="presets.length > 0">
+        <mat-form-field id="presetSearch" appearance="outline" color="primary">
+            <mat-label>Search</mat-label>
+            <input matInput type="text" [(ngModel)]="searchValue">
+            <button *ngIf="searchValue" matSuffix mat-icon-button aria-label="Clear" (click)="searchValue=''">
+              <mat-icon class="material-symbols-outlined">close</mat-icon>
+            </button>
+        </mat-form-field>
+        <button mat-icon-button (click)="toggleFilter()">
+            <mat-icon class="material-symbols-outlined" *ngIf="filterList" color="accent">filter_list</mat-icon>
+            <mat-icon class="material-symbols-outlined" *ngIf="!filterList">filter_list</mat-icon>
         </button>
-    </mat-form-field>
-    <button mat-fab color="primary">          
-        <mat-icon class="material-symbols-outlined">add</mat-icon>
-    </button>
+        <button mat-icon-button (click)="toggleSort()">
+            <mat-icon class="material-symbols-outlined" *ngIf="sortList" color="accent">sort</mat-icon>
+            <mat-icon class="material-symbols-outlined" *ngIf="!sortList">sort</mat-icon>
+        </button>
+    </div>
+    <div id="presetSearchandAddMiddle"></div>
+    <div id="presetSearchandAddRight">
+        <button mat-fab color="primary">          
+            <mat-icon class="material-symbols-outlined">add</mat-icon>
+        </button>
+    </div>
 </div>
 <div id="presetListContainer">
     <div *ngFor="let preset of presets" class="presetContainer">
@@ -19,24 +32,51 @@
                 <mat-card-subtitle>preview:</mat-card-subtitle>
             </mat-card-header>
             <mat-divider></mat-divider>
-            <mat-card-content class="presetContent">
-                <div *ngFor="let entity of preset.entity">
-                    <div>
-                        <div><mat-icon class="material-symbols-outlined">{{ entity.icon }}</mat-icon></div>
-                        <div>{{ entity.label }}</div>
+            <mat-card-content class="presetContentContainer" *ngIf="preset.entity.length > 0">
+                <mat-grid-list cols="2" rowHeight="2:1" gutterSize="5px">
+                    <div *ngFor="let entity of preset.entity; let i = index;">
+                        <mat-grid-tile class="presetContent" [colspan]="1" [rowspan]="1" *ngIf="i < 2">
+                            <div class="contentEntity">
+                                <div class="contentEntityIndex">
+                                    <mat-icon class="material-symbols-outlined">{{ entity.icon }}</mat-icon>
+                                    {{ entity.label }}
+                                </div>
+                                <mat-divider style="margin-top: 5px; margin-bottom: 5px;"></mat-divider>
+                                <div class="contentEntityValue">{{ entity.value }}</div>
+                            </div>
+                        </mat-grid-tile>
+                        <mat-grid-tile class="presetContent" [colspan]="1" [rowspan]="1" *ngIf="i > 2 && entityListExpanded">
+                            <div class="contentEntity">
+                                <div class="contentEntityIndex">
+                                    <mat-icon class="material-symbols-outlined">{{ entity.icon }}</mat-icon>
+                                    {{ entity.label }}
+                                </div>
+                                <mat-divider style="margin-top: 5px; margin-bottom: 5px;"></mat-divider>
+                                <div class="contentEntityValue">{{ entity.value }}</div>
+                            </div>
+                        </mat-grid-tile>
                     </div>
-                    <div>{{ entity.value }}</div>
+                </mat-grid-list>
+                <div (click)="entityListToggle()">
+                    <a mat-flat-button *ngIf="preset.entity.length > 3 && !entityListExpanded">
+                        <mat-icon class="material-symbols-outlined">expand_more</mat-icon>
+                        show more
+                    </a>
+                    <a mat-flat-button *ngIf="preset.entity.length > 3 && entityListExpanded">
+                        <mat-icon class="material-symbols-outlined">expand_less</mat-icon>
+                        show less
+                    </a>
                 </div>
             </mat-card-content>
             <mat-divider></mat-divider>
             <mat-card-actions class="presetActions">
-                <button mat-flat-button class="presetActionButton" color="primary">
+                <button mat-stroked-button class="presetActionButton" color="primary">
                     <mat-icon class="material-symbols-outlined">refresh</mat-icon>
                     Recall</button>
-                <button mat-flat-button class="presetActionButton" color="accent">
+                <button mat-stroked-button class="presetActionButton" color="accent">
                     <mat-icon class="material-symbols-outlined">edit</mat-icon>
                     Edit</button>
-                <button mat-flat-button class="presetActionButton" color="warn">
+                <button mat-stroked-button class="presetActionButton" color="warn">
                     <mat-icon class="material-symbols-outlined">delete</mat-icon>
                     Delete</button>
             </mat-card-actions>

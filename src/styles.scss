@@ -29,7 +29,13 @@ $DGIApp-theme: mat.define-light-theme((
     warn: $DGIApp-warn,
   )
 ));
-
+// $DGIApp-theme: mat.define-dark-theme((
+//   color: (
+//     primary: $DGIApp-primary,
+//     accent: $DGIApp-accent,
+//     warn: $DGIApp-warn,
+//   )
+// ));
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.

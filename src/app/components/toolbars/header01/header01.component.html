@@ -1,24 +1,16 @@
-<mat-toolbar color="primary">
+<mat-toolbar>
     <mat-toolbar-row>
         <div id="header01ContainerLeft"></div>
         <div id="header01ContainerMiddle">
-            <button class="header01Button" mat-icon-button color="warn">
-                <mat-icon class="material-symbols-outlined">mic_off</mat-icon>
-            </button>
-            <button class="header01Button" mat-icon-button color="warn">
-                <mat-icon class="material-symbols-outlined">volume_off</mat-icon>
-            </button>
-            <button class="header01Button" mat-icon-button color="warn">
-                <mat-icon class="material-symbols-outlined">videocam_off</mat-icon>
-            </button>
-            <button class="header01Button" mat-icon-button color="warn">
-                <mat-icon class="material-symbols-outlined">cloud_off</mat-icon>
-            </button>
-            <button class="header01Button" mat-icon-button color="warn">
-                <mat-icon class="material-symbols-outlined">timer</mat-icon>
+            <button 
+            class="header01Button"
+            mat-icon-button 
+            *ngFor="let statusNotification of statusNotifications"
+            color="{{ statusNotification.color }}">
+                <mat-icon class="material-symbols-outlined">{{ statusNotification.icon }}</mat-icon>
             </button>
             <mat-divider [vertical]="true"></mat-divider>
         </div>
-        <div id="header01ContainerRight">Room Name</div>
+        <div id="header01ContainerRight">{{ roomName }}</div>
     </mat-toolbar-row>
 </mat-toolbar>

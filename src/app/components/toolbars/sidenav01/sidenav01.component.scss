@@ -10,7 +10,7 @@
     border-bottom-right-radius: 15px;
     margin-top: auto;
     margin-bottom: auto;
-    box-shadow: 0 0 0 0 !important;
+    box-shadow: 0 0 3px 0 var(--color--primary) !important;
 }
 #navContainer{
     height: 100%;
@@ -61,9 +61,10 @@
 #contentContainer{
     height: 100%;
     width: 100%;
+    // overflow: hidden;
 }
 #menuContent{
-    padding-left: 5%;
+    padding-left: 50px;
     padding-right: 1%;
     padding-top: 1%;
     padding-bottom: 2%;
