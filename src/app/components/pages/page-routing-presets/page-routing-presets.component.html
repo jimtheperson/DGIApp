@@ -24,7 +24,7 @@
     </div>
 </div>
 <div id="presetListContainer">
-    <div *ngFor="let preset of presets" class="presetContainer">
+    <div *ngFor="let preset of presets; let j = index;" class="presetContainer">
         <mat-card>
             <mat-card-header>
                 <mat-icon *ngIf="preset.isScheduled" class="material-symbols-outlined">timer</mat-icon>
@@ -45,7 +45,7 @@
                                 <div class="contentEntityValue">{{ entity.value }}</div>
                             </div>
                         </mat-grid-tile>
-                        <mat-grid-tile class="presetContent" [colspan]="1" [rowspan]="1" *ngIf="i > 2 && entityListExpanded">
+                        <mat-grid-tile class="presetContent" [colspan]="1" [rowspan]="1" *ngIf="i > 2 && preset.isExpanded">
                             <div class="contentEntity">
                                 <div class="contentEntityIndex">
                                     <mat-icon class="material-symbols-outlined">{{ entity.icon }}</mat-icon>
@@ -57,12 +57,12 @@
                         </mat-grid-tile>
                     </div>
                 </mat-grid-list>
-                <div (click)="entityListToggle()">
-                    <a mat-flat-button *ngIf="preset.entity.length > 3 && !entityListExpanded">
+                <div (click)="entityListToggle(j)">
+                    <a mat-flat-button *ngIf="preset.entity.length > 3 && !preset.isExpanded">
                         <mat-icon class="material-symbols-outlined">expand_more</mat-icon>
                         show more
                     </a>
-                    <a mat-flat-button *ngIf="preset.entity.length > 3 && entityListExpanded">
+                    <a mat-flat-button *ngIf="preset.entity.length > 3 && preset.isExpanded">
                         <mat-icon class="material-symbols-outlined">expand_less</mat-icon>
                         show less
                     </a>
